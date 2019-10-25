@@ -8,7 +8,7 @@ int main()
     while(scanf("%d%d",&a,&b) != EOF)
     {
         printf("%d",gcd(a,b));
-
+    
     }
     return 0;
 }
