@@ -1,18 +1,35 @@
 #include<bits/stdc++.h>
 
 using namespace std;
-typedef long long ll;
 
-ll q,k,n,a,b;
+int n,T;
+int a[200010];
+map<int, int> b,vis;
 
 int main()
 {
-    scanf("%lld",&q);
-    while ( q -- )
+    scanf("%d",&T);
+    while ( T -- )
     {
-        scanf("%lld %lld %lld %lld",&k,&n,&a,&b);
-        if ( b * n >= k ) printf("-1\n");
-        else printf("%lld\n",min(n, ( k - 1 - b * n ) / ( a - b )));
+        b.erase( b.begin(), b.end() );
+        vis.erase( vis.begin(), vis.end() );
+        scanf("%d",&n);
+        for ( int i = 0; i < n; i++ )
+        {
+            scanf("%d",&a[i]);
+        }
+        for ( int i = 0; i < n; i ++ ) b[a[i]] ++;
+        map<int, int>::iterator iter;
+        int cnt = 0;
+        for ( iter = b.begin(); iter != b.end(); iter ++ )
+        {
+            int pos = iter->second;
+            while ( vis[pos] && pos > 0 ) pos --;
+            vis[pos] = 1;
+            cnt += pos;
+        }
+        printf("%d\n",cnt);
     }
     return 0;
 }
+
