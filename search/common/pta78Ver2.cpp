@@ -27,9 +27,7 @@ void yield( int cur, int n )
                 yield(cur+1, n);
             }
         }
-
     }
-
 }
 
 int main()

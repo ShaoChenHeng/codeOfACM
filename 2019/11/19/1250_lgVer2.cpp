@@ -1,68 +1,69 @@
-#include<bits/stdc++.h>
+#include <cstdio>
+#include <algorithm>
+#include <queue>
+#include <cstring>
 using namespace std;
-const int N = 31000;
-const int M = 110000;
-int n,m;
-int dis[N];
-bool vis[N];
-int head[N],num;
-struct Edge{
-    int to,next,w;
-}s[M];
-void add(int u,int v,int w)//根据公式建边
-{
-    s[++num].w=w;
-    s[num].next=head[u];
-    head[u]=num;
-    s[num].to=v;
+const int MAXN = 30101;
+const int MAXM = 100101;
+int cnt=0,u[MAXM],v[MAXM],w[MAXM],first[MAXN],_next[MAXM];
+bool vis[MAXN];
+int inq[MAXN],dis[MAXN];
+int n,h;
+void addedge(int ux,int vx,int wx){
+    ++cnt;
+    u[cnt]=ux;
+    v[cnt]=vx;
+    w[cnt]=wx;
+    _next[cnt]=first[ux];
+    first[ux]=cnt;
 }
-void spfa(int x)//SPFA经典操（ban）作（zi）
-{
+int spfa(int s,int t){
     queue<int> q;
-    q.push(x);
-    for(int i=0;i<=n+1;i++)
-        dis[i]=1;
-    dis[x]=0;vis[x]=1;
-    while(!q.empty())
-    {
-        int g=q.front();
+    for(int i=0;i<=n+1;i++){
+        dis[i]=0x3f3f3f3f;
+        }
+    q.push(s);
+    dis[s]=0;
+    inq[s]=1;
+    vis[s]=1;
+    while(!q.empty()){
+        int u=q.front();
         q.pop();
-        vis[g]=0;
-        for(int i=head[g];i!=-1;i=s[i].next)
-        {
-            int t=s[i].to;
-            if(dis[t]>dis[g]+s[i].w)
-            {
-                dis[t]=dis[g]+s[i].w;
-                if(!vis[t])
-                {
-                    q.push(t);
-                    vis[t]=1;               
+        vis[u]=0;
+        for(int i=first[u];i;i=_next[i]){
+            if(w[i]+dis[u]<dis[v[i]]){
+                dis[v[i]]=w[i]+dis[u];
+                if(!vis[v[i]]){
+                    vis[v[i]]=1;
+                    inq[v[i]]++;
+                    q.push(v[i]);
+                    if(inq[v[i]]>n)
+                        return 0x3f3f3f3f;
                 }
             }
         }
     }
 }
-int main()
-{
-    int a,b,c,minn=123456789;
-    memset(head,-1,sizeof(head));
-    cin>>n>>m;
-    int y=n+1;
-    for(int i=0;i<=n;i++) add(y,i,0);
-    for(int i=1;i<=m;i++)
-    {
-        cin>>a>>b>>c;
-        add(b,a-1,-c);
+int main(){
+    scanf("%d %d",&n,&h);
+    int b,e,t;
+    for(int i=1;i<=h;i++){
+        scanf("%d %d %d",&b,&e,&t);
+        addedge(e,b-1,-t);
     }
-    for(int i=1;i<=n;i++)//建边操作
-    {
-        add(i-1,i,1);
-        add(i,i-1,0);
+    addedge(n+1,0,0);
+    for(int i=1;i<=n;i++){
+        addedge(n+1,i,0);
+        addedge(i,i-1,0);
+        addedge(i-1,i,1);
     }
-    spfa(y);
-    for(int i=0;i<=n;i++)//取最小值
-        minn=min(minn,dis[i]);
-    cout<<dis[n]-minn<<endl;
+    spfa(n+1,0);
+    int mind=0x3f3f3f3f;
+    for(int i=0;i<=n;i++){
+        mind=min(mind,dis[i]);    
+    }
+    for ( int i = 0; i < 10; i ++ ) printf("%d ",dis[i]);
+    printf("\n");
+    printf("%d",dis[n]-mind);
     return 0;
 }

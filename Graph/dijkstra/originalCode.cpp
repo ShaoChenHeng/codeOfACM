@@ -40,7 +40,7 @@ int main()
     {
         scanf("%d %d %d", &u, &v, &c);
         cost[u][v] = c;
-        cost[v][u] = c;
+        //cost[v][u] = c;
     }
     dijsktra(0);
     for ( int i = 0; i < V; i++ ) printf("%d ",d[i]);

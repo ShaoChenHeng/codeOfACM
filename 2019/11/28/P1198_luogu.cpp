@@ -16,8 +16,7 @@ int query( int o, int L, int R )
     return ans;
 }
 
-void update( int o, int L, int R )
-{
+void update( int o, int L, int R ) {
     int M = L + ( R - L ) / 2;
     if ( L == R ) maxv[o] = v;
     else

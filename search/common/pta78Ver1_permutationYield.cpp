@@ -4,7 +4,8 @@ using namespace std;
 
 int num[100];
 
-int main(){
+int main()
+{
 	int n;
 	scanf("%d",&n);
 	for ( int i = 1; i <= n; i++ )

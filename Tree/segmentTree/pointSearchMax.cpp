@@ -38,7 +38,7 @@ int main()
     for ( p = 1; p <= n ; p++ )
     {
         scanf("%d",&v);
-        a[p] = v;
+        //a[p] = v;
         update(1,1,n);
     }
     /* for ( int i = 1; i <= 2 * n; i++ )
@@ -49,8 +49,6 @@ int main()
     
     ql = 2, qr = n;
     printf("%d\n",query(1,1,n));
-
-    
 
     return 0;
 }

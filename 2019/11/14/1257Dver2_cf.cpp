@@ -2,6 +2,7 @@
 #include<cstdio>
 #define R register
 int T,N,A[200005],M,P,S,k,hur[200005],ans,am,pm,l,r,mid;
+
 template<class T>inline void read(R T &m)
 {
     m=0;
@@ -9,6 +10,7 @@ template<class T>inline void read(R T &m)
     while(!isdigit(c))c=getchar();
     while(isdigit(c))m=(m<<3)+(m<<1)+(c&15),c=getchar();
 }
+
 inline bool check(R int kill)
 {
     for(R int i=k; i<=k+kill-1; ++i)
@@ -38,7 +40,8 @@ int main()
         {
             read(P),read(S),
             pm=P>pm?P:pm,
-            hur[S]=P>hur[S]?P:hur[S];
+            hur[S]= P > hur[S]?P:hur[S];
+            //if ( P > hur[S] ) hur[S] = P;
         }
         if(am>pm)//怪最大血量>最大承受量
         {

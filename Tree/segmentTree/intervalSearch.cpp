@@ -55,8 +55,8 @@ int main()
     scanf("%d",&n);
     for ( int i  = 1; i <= n ; i++ )
     {
-        scanf("%d",&v);
         _y1 = i, _y2 = i;
+        scanf("%d",&v);
         update(1, 1, n);
     }
     _y1 = 1, _y2 = n;

@@ -60,6 +60,5 @@ int main()
     printf("ans = %d",d[v]);
     fclose(stdin);
     fclose(stdout);
-
     return 0;
 }

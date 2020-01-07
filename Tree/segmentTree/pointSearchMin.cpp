@@ -50,8 +50,6 @@ int main()
     ql = 2, qr = n;
     printf("%d\n",query(1,1,n));
 
-    
-
     return 0;
 }
 

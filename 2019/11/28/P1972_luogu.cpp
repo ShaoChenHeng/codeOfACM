@@ -52,7 +52,7 @@ int main()
     int next = 1;
     for(int i = 1; i <= ww; i ++)
     {
-        for(int j = next; j <= ask[i].r; j++)
+        for(int j = next; j <= ask[i].r ; j++)
         {
             if( booll[num[j]] )  add(booll[num[j]],-1);
             add(j,1);

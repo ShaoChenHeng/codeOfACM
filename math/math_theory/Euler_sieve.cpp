@@ -26,7 +26,7 @@ int main()
     work(n);
 	for(int i = 0; i < n; i++)
 	{
-		printf("%d ", prim[i]);
+        if ( !vis[i] ) printf("%d ", i);
 	}
 
 }

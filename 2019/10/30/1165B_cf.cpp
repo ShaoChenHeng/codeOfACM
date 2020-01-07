@@ -10,7 +10,7 @@ int main()
     scanf("%d",&n);
     int ans = 1;
     for ( int i = 1; i <= n; i++ ) scanf("%d",&a[i]);
-    sort(a+1,a+n+1);
+    sort(a + 1, a + n + 1);
     for( int i = 1; i <= n; i++ )
     {
         if ( a[i] >= ans ) ans ++;

@@ -21,7 +21,7 @@ int main()
     ll n,k;
     scanf("%lld %lld",&n,&k);
     for ( ll i = 0; i < n; i++ )
-    {
+    { 
         scanf("%d %d",&s[i].length,&s[i].bueaty);
     }
     priority_queue < ll, vector<ll>, greater<ll> > q;

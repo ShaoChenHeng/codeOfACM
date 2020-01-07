@@ -1,0 +1,9 @@
+v = 0 min = 0
+v = 1 min = 1
+v = 2 min = 3
+v = 3 min = 3
+v = 4 min = 8
+v = 5 min = 6
+v = 6 min = 8
+v = 7 min = 7
+v = 8 min = 9

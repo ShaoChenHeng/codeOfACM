@@ -35,11 +35,11 @@ int main()
             return 0;
         }
     }
-    b[n] = L[n];
-    for ( int i = 1; i <= n; i++ ) printf("%d ",L[i]);
+    b[1] = L[1];
+    /* for ( int i = 1; i <= n; i++ ) printf("%d ",L[i]);
     printf("\n");
     for ( int i = 1; i <= n; i++ ) printf("%d ",R[i]);
-    printf("\n");
+    printf("\n"); */
     for ( int i = n - 1; i >= 1; i -- )
     {
         if ( a[i] == a[i + 1] ) b[i] = b[i+1];
