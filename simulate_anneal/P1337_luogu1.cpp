@@ -61,8 +61,8 @@ void solve()
 
 int main()
 {
+    //srand(10000007);
     scanf("%d",&n);
-
     for ( int i = 0; i < n; i ++ )
     {
         scanf("%d %d %d", &a[i].x, &a[i].y, &a[i].w);
